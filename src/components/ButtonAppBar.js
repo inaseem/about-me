@@ -19,6 +19,7 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import ImageAvatars from "./ImageAvatars";
 import PersonalInfo from "./PersonalInfo";
+import { Container, Grid } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -75,6 +76,9 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen
     }),
     marginLeft: 0
+  },
+  gridContainer: {
+    flexGrow: 1
   }
 }));
 
@@ -162,36 +166,44 @@ export default function ButtonAppBar() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-        <ImageAvatars />
+        <Container maxWidth="md">
+          <Grid
+            direction="row"
+            container
+            spacing={2}
+            className={theme.gridContainer}
+          >
+            <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
+              <Grid
+                direction="column"
+                className={theme.gridContainer}
+                alignItems="center"
+                justify="flex-start"
+              >
+                <Grid item md={12}>
+                  <Typography variant="body2">Hello</Typography>
+                </Grid>
+                <Grid item md={12}>
+                  <Typography variant="h2" style={{ fontWeight: "bold" }}>
+                    I'm Naseem
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={6}>
+              <ImageAvatars />
+            </Grid>
+          </Grid>
+        </Container>
+
+        <Container maxWidth="md">
+          <Typography paragraph style={{fontStyle:"italic"}}>
+            I'm an undergrad at DIT University pursuing my bachelors in Computer
+            Science and Engineering. I work on AWS elasticsearch, dynamoDB,
+            fastify, graphql & android.
+          </Typography>
+        </Container>
+
         <PersonalInfo />
       </main>
     </div>
