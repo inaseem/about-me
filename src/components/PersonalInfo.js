@@ -32,9 +32,8 @@ export default function PersonalInfo() {
   const [data, setData] = React.useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.post(
+      const response = await axios.get(
         "https://api.github.com/user/repos",
-        {},
         {
           headers: { Authorization: `token ${TOKEN}` }
         }
