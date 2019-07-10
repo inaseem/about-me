@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImageAvatars() {
+export default function ImageAvatars(props) {
   const classes = useStyles();
 
   return (
@@ -25,7 +25,7 @@ export default function ImageAvatars() {
         src="/static/images/avatar/1.jpg"
         className={classes.avatar}
       /> */}
-      <Avatar alt="Naseem" src={Naseem} className={classes.bigAvatar} />
+      <Avatar alt="Naseem" src={props.url} className={classes.bigAvatar} />
     </Grid>
   );
 }

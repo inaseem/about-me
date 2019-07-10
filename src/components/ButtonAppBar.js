@@ -17,9 +17,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import ImageAvatars from "./ImageAvatars";
-import PersonalInfo from "./PersonalInfo";
-import { Container, Grid } from "@material-ui/core";
 import Stats from "./Stats";
 
 const drawerWidth = 240;
@@ -167,44 +164,7 @@ export default function ButtonAppBar() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Container maxWidth="md">
-          <Grid
-            direction="row"
-            container
-            spacing={2}
-            className={theme.gridContainer}
-          >
-            <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
-              <Grid
-                direction="column"
-                container
-                className={theme.gridContainer}
-                // alignItems="center"
-                justify="flex-start"
-              >
-                <Grid item md={12}>
-                  <Typography variant="body2">Hello</Typography>
-                </Grid>
-                <Grid item md={12}>
-                  <Typography variant="h2" style={{ fontWeight: "bold" }}>
-                    I'm Naseem
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item xs={6}>
-              <ImageAvatars />
-            </Grid>
-          </Grid>
-        </Container>
 
-        <Container maxWidth="md">
-          <Typography paragraph style={{ fontStyle: "italic" }}>
-            I'm an undergrad at DIT University pursuing my bachelors in Computer
-            Science and Engineering. I work on AWS elasticsearch, dynamoDB,
-            fastify, graphql & android.
-          </Typography>
-        </Container>
         <Stats />
         {/* <PersonalInfo /> */}
       </main>
