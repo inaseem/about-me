@@ -16,17 +16,14 @@ const useTheme = makeStyles(theme => ({
   }
 }));
 export default function Stats(props) {
-  const [data, setData] = useState([]);
   const [user, setUser] = useState({});
   const theme = useTheme();
   useEffect(() => {
     const getData = async () => {
       try {
-        let response = await git.repos.list({
-          per_page: 100
-        });
-        console.log(response.data);
-        setData(response.data);
+        // let response = await git.repos.list({
+        //   per_page: 100
+        // });
         let userResponse = await git.users.getAuthenticated();
         setUser(userResponse.data);
         console.log(userResponse.data);
