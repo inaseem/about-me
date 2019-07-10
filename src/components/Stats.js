@@ -36,19 +36,7 @@ export default function Stats(props) {
     };
     getData();
   });
-  let index = 0;
-  const items = data
-    .filter(d => d.stargazers_count > 0)
-    .sort((a, b) => {
-      return b.stargazers_count - a.stargazers_count;
-    })
-    .map(d => {
-      return (
-        <Grid item md={4} key={index++}>
-          {d.name}
-        </Grid>
-      );
-    });
+
   return (
     <React.Fragment>
       <Container maxWidth="md">
