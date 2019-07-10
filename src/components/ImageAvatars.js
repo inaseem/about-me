@@ -25,7 +25,7 @@ export default function ImageAvatars() {
         src="/static/images/avatar/1.jpg"
         className={classes.avatar}
       /> */}
-      <Avatar alt="Remy Sharp" src={Naseem} className={classes.bigAvatar} />
+      <Avatar alt="Naseem" src={Naseem} className={classes.bigAvatar} />
     </Grid>
   );
 }

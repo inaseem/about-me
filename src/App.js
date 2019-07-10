@@ -9,8 +9,6 @@ class App extends React.Component {
     return (
       <div>
         <ButtonAppBar />
-        <ImageAvatars />
-        <PersonalInfo />
       </div>
     );
   }
