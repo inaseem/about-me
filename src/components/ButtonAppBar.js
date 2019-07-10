@@ -20,6 +20,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import ImageAvatars from "./ImageAvatars";
 import PersonalInfo from "./PersonalInfo";
 import { Container, Grid } from "@material-ui/core";
+import Stats from "./Stats";
 
 const drawerWidth = 240;
 
@@ -176,8 +177,9 @@ export default function ButtonAppBar() {
             <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
               <Grid
                 direction="column"
+                container
                 className={theme.gridContainer}
-                alignItems="center"
+                // alignItems="center"
                 justify="flex-start"
               >
                 <Grid item md={12}>
@@ -197,14 +199,14 @@ export default function ButtonAppBar() {
         </Container>
 
         <Container maxWidth="md">
-          <Typography paragraph style={{fontStyle:"italic"}}>
+          <Typography paragraph style={{ fontStyle: "italic" }}>
             I'm an undergrad at DIT University pursuing my bachelors in Computer
             Science and Engineering. I work on AWS elasticsearch, dynamoDB,
             fastify, graphql & android.
           </Typography>
         </Container>
-
-        <PersonalInfo />
+        <Stats />
+        {/* <PersonalInfo /> */}
       </main>
     </div>
   );
