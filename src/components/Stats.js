@@ -23,7 +23,7 @@ const useTheme = makeStyles(theme => ({
   hello: {
     color: "rgba(0,0,0,0.5)",
     fontWeight: "bold",
-    fontVariant: "all-petite-caps",
+    fontVariant: "all-petite-caps"
   }
 }));
 export default function Stats(props) {
@@ -89,7 +89,7 @@ export default function Stats(props) {
         <Paper>
           {/* <CardContent> */}
           <Grid direction="row" container spacing={2} justify="space-around">
-            <Grid item md={4} className={theme.gridItemFlex}>
+            <Grid item md={3} className={theme.gridItemFlex}>
               <Typography variant="body2" className={theme.textCaps}>
                 Repositories
               </Typography>
@@ -97,7 +97,7 @@ export default function Stats(props) {
                 {user.public_repos ? user.public_repos : "..."}
               </Typography>
             </Grid>
-            <Grid item md={4} className={theme.gridItemFlex}>
+            <Grid item md={3} className={theme.gridItemFlex}>
               <Typography variant="body2" className={theme.textCaps}>
                 Followers
               </Typography>
@@ -105,12 +105,20 @@ export default function Stats(props) {
                 {user.followers ? user.followers : "..."}
               </Typography>
             </Grid>
-            <Grid item md={4} className={theme.gridItemFlex}>
+            <Grid item md={3} className={theme.gridItemFlex}>
               <Typography variant="body2" className={theme.textCaps}>
                 Gists
               </Typography>
               <Typography variant="button">
                 {user.public_gists ? user.public_gists : "..."}
+              </Typography>
+            </Grid>
+            <Grid item md={3} className={theme.gridItemFlex}>
+              <Typography variant="body2" className={theme.textCaps}>
+                Collaborators
+              </Typography>
+              <Typography variant="button">
+                {user.collaborators ? user.collaborators : "..."}
               </Typography>
             </Grid>
           </Grid>
