@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import git from "../services/Git";
-import { Container, Card, CardContent, Grid } from "@material-ui/core";
+import { Container, Grid, Paper } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 import ImageAvatars from "./ImageAvatars";
@@ -13,26 +13,37 @@ const useTheme = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
+  },
+  textCaps: {
+    fontVariant: "all-petite-caps",
+    color: "rgba(0,0,0,0.5)",
+    fontSize: "18px",
+    fontWeight: "bold"
+  },
+  hello: {
+    color: "rgba(0,0,0,0.5)",
+    fontWeight: "bold",
+    fontVariant: "all-petite-caps",
   }
 }));
 export default function Stats(props) {
   const [user, setUser] = useState({});
   const theme = useTheme();
+  const getData = async () => {
+    try {
+      // let response = await git.repos.list({
+      //   per_page: 100
+      // });
+      let userResponse = await git.users.getAuthenticated();
+      setUser(userResponse.data);
+      console.log(userResponse.data);
+    } catch (e) {
+      console.warn(e);
+    }
+  };
   useEffect(() => {
-    const getData = async () => {
-      try {
-        // let response = await git.repos.list({
-        //   per_page: 100
-        // });
-        let userResponse = await git.users.getAuthenticated();
-        setUser(userResponse.data);
-        console.log(userResponse.data);
-      } catch (e) {
-        console.warn(e);
-      }
-    };
     getData();
-  });
+  }, []);
 
   return (
     <React.Fragment>
@@ -52,7 +63,9 @@ export default function Stats(props) {
               justify="flex-start"
             >
               <Grid item md={12}>
-                <Typography variant="body2">Hello</Typography>
+                <Typography variant="body2" className={theme.hello}>
+                  Hello
+                </Typography>
               </Grid>
               <Grid item md={12}>
                 <Typography variant="h2" style={{ fontWeight: "bold" }}>
@@ -73,30 +86,36 @@ export default function Stats(props) {
         </Typography>
       </Container>
       <Container maxWidth="md">
-        <Card>
-          <CardContent>
-            <Grid direction="row" container spacing={2} justify="space-around">
-              <Grid item md={4} className={theme.gridItemFlex}>
-                <Typography variant="body2">Repositories</Typography>
-                <Typography variant="button">
-                  {user.public_repos ? user.public_repos : "..."}
-                </Typography>
-              </Grid>
-              <Grid item md={4} className={theme.gridItemFlex}>
-                <Typography variant="body2">Followers</Typography>
-                <Typography variant="button">
-                  {user.followers ? user.followers : "..."}
-                </Typography>
-              </Grid>
-              <Grid item md={4} className={theme.gridItemFlex}>
-                <Typography variant="body2">Gists</Typography>
-                <Typography variant="button">
-                  {user.public_gists ? user.public_gists : "..."}
-                </Typography>
-              </Grid>
+        <Paper>
+          {/* <CardContent> */}
+          <Grid direction="row" container spacing={2} justify="space-around">
+            <Grid item md={4} className={theme.gridItemFlex}>
+              <Typography variant="body2" className={theme.textCaps}>
+                Repositories
+              </Typography>
+              <Typography variant="button">
+                {user.public_repos ? user.public_repos : "..."}
+              </Typography>
             </Grid>
-          </CardContent>
-        </Card>
+            <Grid item md={4} className={theme.gridItemFlex}>
+              <Typography variant="body2" className={theme.textCaps}>
+                Followers
+              </Typography>
+              <Typography variant="button">
+                {user.followers ? user.followers : "..."}
+              </Typography>
+            </Grid>
+            <Grid item md={4} className={theme.gridItemFlex}>
+              <Typography variant="body2" className={theme.textCaps}>
+                Gists
+              </Typography>
+              <Typography variant="button">
+                {user.public_gists ? user.public_gists : "..."}
+              </Typography>
+            </Grid>
+          </Grid>
+          {/* </CardContent> */}
+        </Paper>
       </Container>
     </React.Fragment>
   );
