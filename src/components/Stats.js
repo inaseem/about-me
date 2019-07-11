@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import git from "../services/Git";
-import { Container, Grid, Paper } from "@material-ui/core";
+import { Container, Grid, Paper, Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 import ImageAvatars from "./ImageAvatars";
@@ -24,6 +24,21 @@ const useTheme = makeStyles(theme => ({
     color: "rgba(0,0,0,0.5)",
     fontWeight: "bold",
     fontVariant: "all-petite-caps"
+  },
+  hire: {
+    marginTop: "16px",
+    color: "white",
+    backgroundColor: "#4BB543"
+    // backgroundColor: "#00ff00"
+  },
+  marginTop: {
+    marginTop: "16px"
+  },
+  marginTop20: {
+    marginTop: "20px"
+  },
+  marginTop24: {
+    marginTop: "24px"
   }
 }));
 export default function Stats(props) {
@@ -72,6 +87,20 @@ export default function Stats(props) {
                   I'm {user.name ? user.name.split(" ")[0] : "Naseem"}
                 </Typography>
               </Grid>
+              {user.hireable ? (
+                <Grid item md={12}>
+                  <Button
+                    size="medium"
+                    variant="contained"
+                    color="primary"
+                    className={theme.hire}
+                  >
+                    Hire Me
+                  </Button>
+                </Grid>
+              ) : (
+                ""
+              )}
             </Grid>
           </Grid>
           <Grid item xs={6}>
@@ -80,12 +109,12 @@ export default function Stats(props) {
         </Grid>
       </Container>
 
-      <Container maxWidth="md">
+      <Container maxWidth="md" className={theme.marginTop}>
         <Typography paragraph style={{ fontStyle: "italic" }}>
           {user.bio ? user.bio : ""}
         </Typography>
       </Container>
-      <Container maxWidth="md">
+      <Container maxWidth="md" className={theme.marginTop24}>
         <Paper>
           {/* <CardContent> */}
           <Grid direction="row" container spacing={2} justify="space-around">
