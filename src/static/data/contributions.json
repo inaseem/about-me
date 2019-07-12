@@ -1,0 +1,48 @@
+{
+    "names": [
+        {
+            "owner": "elastic",
+            "repo": "elasticsearch-js"
+        },
+        {
+            "owner": "gscdit",
+            "repo": "betterpledge-frontend"
+        },
+        {
+            "owner": "namica",
+            "repo": "nn_digits"
+        },
+        {
+            "owner": "SmartJoules",
+            "repo": "sjpl-graph-ql, Devops, JouleTrack-API"
+        },
+        {
+            "owner": "eclipse",
+            "repo": "mosquitto"
+        },
+        {
+            "owner": "mozilla",
+            "repo": "mozilla-campus-clubs"
+        },
+        {
+            "owner": "dialogflow",
+            "repo": "dialogflow-fulfillment-nodejs"
+        },
+        {
+            "owner": "fastify",
+            "repo": "fastify, fastify-jwt"
+        },
+        {
+            "owner": "UdacityAndroidBasicsScholarship",
+            "repo": "audacity"
+        },
+        {
+            "owner": "jitpack",
+            "repo": "jitpack.io"
+        },
+        {
+            "owner": "Devlight",
+            "repo": "ArcProgressStackView"
+        }
+    ]
+}

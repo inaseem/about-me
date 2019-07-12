@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import git from "../services/Git";
+import octokit from "../services/Git";
 import { Container, Grid, Paper, Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 import ImageAvatars from "./ImageAvatars";
+import Companies from "./Companies";
 
 const useTheme = makeStyles(theme => ({
   gridContainer: {
@@ -39,18 +40,30 @@ const useTheme = makeStyles(theme => ({
   },
   marginTop24: {
     marginTop: "24px"
+  },
+  heading: {
+    marginTop: "16px",
+    fontSize: "18px",
+    color: "#242424"
+  },
+  bold: {
+    fontWeight: "bold"
   }
 }));
 export default function Stats(props) {
   const [user, setUser] = useState({});
+  const [company, setCompany] = useState([]);
   const theme = useTheme();
   const getData = async () => {
     try {
       // let response = await git.repos.list({
       //   per_page: 100
       // });
-      let userResponse = await git.users.getAuthenticated();
+      let userResponse = await octokit.users.getAuthenticated();
       setUser(userResponse.data);
+      let orgsResponse = await octokit.orgs.listForAuthenticatedUser();
+      setCompany(orgsResponse.data);
+      console.log(orgsResponse.data);
       console.log(userResponse.data);
     } catch (e) {
       console.warn(e);
@@ -109,20 +122,14 @@ export default function Stats(props) {
         </Grid>
       </Container>
 
-      <Container maxWidth="md" className={theme.marginTop}>
-        <Typography paragraph style={{ fontStyle: "italic" }}>
-          {user.bio ? user.bio : ""}
-        </Typography>
-      </Container>
       <Container maxWidth="md" className={theme.marginTop24}>
         <Paper>
-          {/* <CardContent> */}
           <Grid direction="row" container spacing={2} justify="space-around">
             <Grid item md={3} className={theme.gridItemFlex}>
               <Typography variant="body2" className={theme.textCaps}>
                 Repositories
               </Typography>
-              <Typography variant="button">
+              <Typography className={theme.bold}>
                 {user.public_repos ? user.public_repos : "..."}
               </Typography>
             </Grid>
@@ -130,7 +137,7 @@ export default function Stats(props) {
               <Typography variant="body2" className={theme.textCaps}>
                 Followers
               </Typography>
-              <Typography variant="button">
+              <Typography className={theme.bold}>
                 {user.followers ? user.followers : "..."}
               </Typography>
             </Grid>
@@ -138,7 +145,7 @@ export default function Stats(props) {
               <Typography variant="body2" className={theme.textCaps}>
                 Gists
               </Typography>
-              <Typography variant="button">
+              <Typography className={theme.bold}>
                 {user.public_gists ? user.public_gists : "..."}
               </Typography>
             </Grid>
@@ -146,14 +153,37 @@ export default function Stats(props) {
               <Typography variant="body2" className={theme.textCaps}>
                 Collaborators
               </Typography>
-              <Typography variant="button">
+              <Typography className={theme.bold}>
                 {user.collaborators ? user.collaborators : "..."}
               </Typography>
             </Grid>
           </Grid>
-          {/* </CardContent> */}
         </Paper>
       </Container>
+      <Container maxWidth="md" className={theme.marginTop}>
+        <Grid container justify="flex-start" direction="column">
+          <Grid item md={12}>
+            <Typography variant="h6" className={theme.heading}>
+              About me
+            </Typography>
+          </Grid>
+          <Grid item md={12}>
+            <Typography
+              paragraph
+              style={{ fontStyle: "italic", marginTop: "8px" }}
+            >
+              {user.bio ? user.bio : ""}
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
+      {company.length > 0 ? (
+        <Container maxWidth="md">
+          <Companies orgs={company} />
+        </Container>
+      ) : (
+        ""
+      )}
     </React.Fragment>
   );
 }

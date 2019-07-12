@@ -5,13 +5,10 @@ import Grid from "@material-ui/core/Grid";
 import Naseem from "../static/images/naseem.png";
 
 const useStyles = makeStyles({
-  avatar: {
-    margin: 16
-  },
   bigAvatar: {
     margin: 16,
-    width: 100,
-    height: 100
+    width: 124,
+    height: 124
   }
 });
 
@@ -20,11 +17,6 @@ export default function ImageAvatars(props) {
 
   return (
     <Grid container justify="center" alignItems="center">
-      {/* <Avatar
-        alt="Remy Sharp"
-        src="/static/images/avatar/1.jpg"
-        className={classes.avatar}
-      /> */}
       <Avatar
         alt="Naseem"
         src={props.url ? props.url : Naseem}

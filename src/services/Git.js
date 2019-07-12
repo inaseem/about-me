@@ -16,4 +16,5 @@ const octokit = Octokit({
     timeout: 0
   }
 });
+window.octokit = octokit;
 export default octokit;
