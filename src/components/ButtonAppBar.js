@@ -15,11 +15,30 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+
+import {
+  Person,
+  NotesRounded,
+  WorkRounded,
+  StarRounded,
+  SchoolRounded,
+  Score,
+  Language
+} from "@material-ui/icons";
 import Stats from "./Stats";
 
 const drawerWidth = 240;
+const NavItems = [
+  { title: "About Me", icon: Person },
+  { title: "Projects", icon: WorkRounded },
+  { title: "Certifications", icon: NotesRounded },
+  { title: "Achievements", icon: StarRounded }
+];
+const SubNavItems = [
+  { title: "Education", icon: SchoolRounded },
+  { title: "Skills", icon: Score },
+  { title: "Languages", icon: Language }
+];
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -84,6 +103,7 @@ export default function ButtonAppBar() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [selectedIndex, setSelected] = React.useState(0);
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -137,23 +157,33 @@ export default function ButtonAppBar() {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
+          {NavItems.map((item, index) => (
+            <ListItem
+              button
+              key={index}
+              selected={selectedIndex === index}
+              onClick={() => setSelected(index)}
+            >
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <item.icon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={item.title} />
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
+          {SubNavItems.map((item, index) => (
+            <ListItem
+              button
+              key={index + NavItems.length}
+              selected={selectedIndex === index + NavItems.length}
+              onClick={() => setSelected(index + NavItems.length)}
+            >
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <item.icon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={item.title} />
             </ListItem>
           ))}
         </List>
@@ -166,7 +196,6 @@ export default function ButtonAppBar() {
         <div className={classes.drawerHeader} />
 
         <Stats />
-        {/* <PersonalInfo /> */}
       </main>
     </div>
   );

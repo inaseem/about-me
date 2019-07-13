@@ -96,7 +96,7 @@ export default function Stats(props) {
                 </Typography>
               </Grid>
               <Grid item md={12}>
-                <Typography variant="h2" style={{ fontWeight: "bold" }}>
+                <Typography variant="h3" style={{ fontWeight: "bold" }}>
                   I'm {user.name ? user.name.split(" ")[0] : "Naseem"}
                 </Typography>
               </Grid>
