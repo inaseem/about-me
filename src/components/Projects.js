@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 // };
 export default function Projects() {
   const theme = useStyles();
-  const [colors, setColors] = React.useState({});
+//   const [colors, setColors] = React.useState({});
   return (
     <React.Fragment>
       <Grid container justify="center" alignItems="stretch" spacing={2}>
