@@ -48,11 +48,10 @@ export default function Companies(props) {
     };
     getIssues();
   }, []);
-  let index = 0;
 
-  contributions = contributions.map(org => {
+  contributions = contributions.map((org, index) => {
     return (
-      <Grid item key={index++} xs={6} md={2} className={theme.flexItem}>
+      <Grid item key={index} xs={6} md={2} className={theme.flexItem}>
         <Grid item>
           <img
             src={org.avatar_url}

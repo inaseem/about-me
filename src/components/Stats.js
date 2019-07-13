@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 import ImageAvatars from "./ImageAvatars";
 import Companies from "./Companies";
+import Social from "./Social";
 
 const useTheme = makeStyles(theme => ({
   gridContainer: {
@@ -63,8 +64,8 @@ export default function Stats(props) {
       setUser(userResponse.data);
       let orgsResponse = await octokit.orgs.listForAuthenticatedUser();
       setCompany(orgsResponse.data);
-      console.log(orgsResponse.data);
-      console.log(userResponse.data);
+      // console.log(orgsResponse.data);
+      // console.log(userResponse.data);
     } catch (e) {
       console.warn(e);
     }
@@ -118,6 +119,7 @@ export default function Stats(props) {
           </Grid>
           <Grid item xs={6}>
             <ImageAvatars url={user.avatar_url ? user.avatar_url : ""} />
+            <Social/>
           </Grid>
         </Grid>
       </Container>

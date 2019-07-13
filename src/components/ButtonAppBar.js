@@ -15,6 +15,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import Stats from "./Stats";
 
 import {
   Person,
@@ -25,7 +26,6 @@ import {
   Score,
   Language
 } from "@material-ui/icons";
-import Stats from "./Stats";
 
 const drawerWidth = 240;
 const NavItems = [
@@ -96,10 +96,14 @@ const useStyles = makeStyles(theme => ({
   },
   gridContainer: {
     flexGrow: 1
+  },
+  colorPrimary: {
+    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)"
   }
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -116,13 +120,16 @@ export default function ButtonAppBar() {
   return (
     <div className={classes.root}>
       <CssBaseline />
+      {/* <HideOnScroll {...props}> */}
       <AppBar
+        color="primary"
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
         })}
+        classes={{ colorPrimary: classes.colorPrimary }}
       >
-        <Toolbar>
+        <Toolbar variant="regular">
           <IconButton
             color="inherit"
             aria-label="Open drawer"
@@ -137,6 +144,7 @@ export default function ButtonAppBar() {
           </Typography>
         </Toolbar>
       </AppBar>
+      {/* </HideOnScroll> */}
       <Drawer
         className={classes.drawer}
         variant="persistent"
