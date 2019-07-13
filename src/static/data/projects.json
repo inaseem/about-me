@@ -1,0 +1,16 @@
+[
+    {
+        "title": "AbhiTak News App",
+        "url": "https://play.google.com/store/apps/details?id=softpro.abhitak",
+        "isLive": true,
+        "thumbnail": "https://raw.githubusercontent.com/naseemali925/Acmez/master/screenshots/acmez.png",
+        "description": "Abhitak News is best defined as a responsible channel with a fair and balanced approach that combines prompt reporting with insightful analysis of news and current affairs.",
+        "github": "https://github.com/naseemali925/Acmez",
+        "contributers": [
+            {
+                "name": "Naseem Ali",
+                "avatar": ""
+            }
+        ]
+    }
+]
