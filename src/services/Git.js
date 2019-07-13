@@ -11,9 +11,13 @@ const octokit = Octokit({
     error: console.error
   },
   request: {
-    agent: undefined,
+    agent: "about-me v0.1.0",
     fetch: undefined,
     timeout: 0
+    // headers: {
+    // "Access-Control-Allow-Origin": "*",
+    // "If-Modified-Since": new Date()
+    // }
   }
 });
 window.octokit = octokit;

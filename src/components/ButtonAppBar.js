@@ -15,7 +15,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import Stats from "./Stats";
+import { withRouter } from "react-router-dom";
 
 import {
   Person,
@@ -26,11 +26,12 @@ import {
   Score,
   Language
 } from "@material-ui/icons";
+import Routes from "./Routes";
 
 const drawerWidth = 240;
 const NavItems = [
-  { title: "About Me", icon: Person },
-  { title: "Projects", icon: WorkRounded },
+  { title: "About Me", icon: Person, to: "/" },
+  { title: "Projects", icon: WorkRounded, to: "/projects" },
   { title: "Certifications", icon: NotesRounded },
   { title: "Achievements", icon: StarRounded }
 ];
@@ -103,7 +104,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ButtonAppBar(props) {
+function ButtonAppBar(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -170,7 +171,10 @@ export default function ButtonAppBar(props) {
               button
               key={index}
               selected={selectedIndex === index}
-              onClick={() => setSelected(index)}
+              onClick={() => {
+                setSelected(index);
+                props.history.push(item.to);
+              }}
             >
               <ListItemIcon>
                 <item.icon />
@@ -202,9 +206,9 @@ export default function ButtonAppBar(props) {
         })}
       >
         <div className={classes.drawerHeader} />
-
-        <Stats />
+        <Routes />
       </main>
     </div>
   );
 }
+export default withRouter(ButtonAppBar);

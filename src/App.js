@@ -10,9 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
-          <ButtonAppBar />
-        </div>
+        <ButtonAppBar />
       </Router>
     );
   }
