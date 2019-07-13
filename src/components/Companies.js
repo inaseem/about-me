@@ -15,6 +15,19 @@ const useStyles = makeStyles(theme => ({
     margin: "16px",
     width: "72px",
     height: "72px"
+  },
+  textFlow: {
+    width: "100px",
+    textAlign: "center",
+    // whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis"
+  },
+  flexItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "flex-start"
   }
 }));
 
@@ -39,32 +52,32 @@ export default function Companies(props) {
 
   contributions = contributions.map(org => {
     return (
-      <Grid item key={index++}>
-        <Grid container justify="center" alignItems="center" direction="column">
-          <Grid item>
-            <img
-              src={org.avatar_url}
-              alt={org.name ? org.name : org.login}
-              className={theme.imgResponse}
-            />
-          </Grid>
-          <Grid item>
-            <Typography variant="body2">
-              {org.name ? org.name : org.login}
-            </Typography>
-          </Grid>
+      <Grid item key={index++} xs={6} md={2} className={theme.flexItem}>
+        <Grid item>
+          <img
+            src={org.avatar_url}
+            alt={org.name ? org.name : org.login}
+            className={theme.imgResponse}
+          />
+        </Grid>
+        <Grid item>
+          <Typography
+            variant="body2"
+            component="div"
+            className={theme.textFlow}
+          >
+            {org.name ? org.name : org.login}
+          </Typography>
         </Grid>
       </Grid>
     );
   });
   return contributions.length > 0 ? (
     <React.Fragment>
-      <Grid container justify="flex-start" alignItems="center">
-        <Grid item md={12}>
-          <Typography variant="h6" className={theme.heading}>
-            Worked with
-          </Typography>
-        </Grid>
+      <Typography variant="h6" className={theme.heading}>
+        Contributed To
+      </Typography>
+      <Grid container justify="flex-start" direction="row">
         {contributions}
       </Grid>
     </React.Fragment>
