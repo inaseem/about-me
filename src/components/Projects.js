@@ -11,8 +11,12 @@ import {
 import projects from "../static/data/projects.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { makeStyles } from "@material-ui/core/styles";
+import Oyebooks from "../static/images/oyebooks.webp";
+import Abhitak from "../static/images/abhitak.jpg";
 
-// const thief = new window.ColorThief();
+const thumbnails = [Abhitak, Oyebooks];
+const thief = new window.ColorThief();
+
 const useStyles = makeStyles({
   card: {
     maxWidth: 280,
@@ -29,37 +33,42 @@ const useStyles = makeStyles({
     flexGrow: "1"
   }
 });
-// const getColor = (index, url, colors, setColors) => {
-//   var img = document.createElement("img");
-//   img.setAttribute("crossOrigin", "");
-//   img.setAttribute("src", url);
-//   img.addEventListener("load", () => {
-//     setColors({ ...colors, [index]: thief.getColor(img, 90) });
-//   });
-// };
+const getColor = (index, url, colors, setColors) => {
+  var img = document.createElement("img");
+  img.setAttribute("crossOrigin", "");
+  img.setAttribute("src", url);
+  img.addEventListener("load", () => {
+    setColors({ ...colors, [index]: thief.getColor(img, 90) });
+  });
+};
+
 export default function Projects() {
   const theme = useStyles();
-//   const [colors, setColors] = React.useState({});
+  const [colors, setColors] = React.useState({});
+  React.useEffect(() => {
+    thumbnails.forEach((img, index) => {
+      getColor(index, thumbnails[index], colors, setColors);
+    });
+  }, [colors]);
   return (
     <React.Fragment>
       <Grid container justify="center" alignItems="stretch" spacing={2}>
         {projects.map((project, index) => {
-          //   getColor(index, project.url, colors, setColors);
           return (
             <Grid item key={index}>
               <Card className={theme.card}>
                 <CardMedia
-                  //   style={
-                  //     colors[index]
-                  //       ? {
-                  //           backgroundColor: `rgb(${colors[index][0]},${
-                  //             colors[index][1]
-                  //           },${colors[index][2]})`
-                  //         }
-                  //       : ""
-                  //   }
+                  style={
+                    colors[index]
+                      ? {
+                          backgroundColor: `rgb(${colors[index][0]},${
+                            colors[index][1]
+                          },${colors[index][2]})`
+                        }
+                      : ""
+                  }
                   className={theme.media}
-                  image={project.thumbnail}
+                  image={thumbnails[index]}
                   title={project.title}
                 />
                 <CardContent className={theme.description}>
