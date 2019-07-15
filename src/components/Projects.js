@@ -33,23 +33,35 @@ const useStyles = makeStyles({
     flexGrow: "1"
   }
 });
-const getColor = (index, url, colors, setColors) => {
-  var img = document.createElement("img");
-  img.setAttribute("crossOrigin", "");
-  img.setAttribute("src", url);
-  img.addEventListener("load", () => {
-    setColors({ ...colors, [index]: thief.getColor(img, 90) });
-  });
-};
+// const getColor = (index, url, colors, setColors) => {
+//   var img = document.createElement("img");
+//   img.setAttribute("crossOrigin", "");
+//   img.setAttribute("src", url);
+//   img.addEventListener("load", () => {
+//     setColors({ ...colors, [index]: thief.getColor(img, 90) });
+//   });
+// };
 
 export default function Projects() {
   const theme = useStyles();
   const [colors, setColors] = React.useState({});
   React.useEffect(() => {
-    thumbnails.forEach((img, index) => {
-      getColor(index, thumbnails[index], colors, setColors);
+    let img, listener;
+    thumbnails.forEach((imgUrl, index) => {
+      // getColor(index, thumbnails[index], colors, setColors);
+      img = document.createElement("img");
+      img.setAttribute("crossOrigin", "");
+      img.setAttribute("src", imgUrl);
+      listener = () => {
+        if (img) setColors({ ...colors, [index]: thief.getColor(img, 90) });
+      };
+      img.addEventListener("load", listener, false);
     });
-  }, [colors]);
+
+    return function cleanup() {
+      if (img && listener) img.removeEventListener("load", listener, false);
+    };
+  }, []);
   return (
     <React.Fragment>
       <Grid container justify="center" alignItems="stretch" spacing={2}>
@@ -65,7 +77,7 @@ export default function Projects() {
                             colors[index][1]
                           },${colors[index][2]})`
                         }
-                      : ""
+                      : {}
                   }
                   className={theme.media}
                   image={thumbnails[index]}

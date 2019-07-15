@@ -56,19 +56,16 @@ export default function Stats(props) {
   const [company, setCompany] = useState([]);
   const theme = useTheme();
   const getData = async () => {
-    try {
-      // let response = await git.repos.list({
-      //   per_page: 100
-      // });
-      let userResponse = await octokit.users.getAuthenticated();
-      setUser(userResponse.data);
-      let orgsResponse = await octokit.orgs.listForAuthenticatedUser();
-      setCompany(orgsResponse.data);
-      // console.log(orgsResponse.data);
-      // console.log(userResponse.data);
-    } catch (e) {
-      console.warn(e);
-    }
+    // let response = await git.repos.list({
+    //   per_page: 100
+    // });
+    let userResponse = await octokit.users.getAuthenticated();
+    setUser(userResponse.data);
+    let orgsResponse = await octokit.orgs.listForAuthenticatedUser();
+    setCompany(orgsResponse.data);
+    // console.log(orgsResponse.data);
+    // console.log(userResponse.data);
+    return function cleanup() {};
   };
   useEffect(() => {
     getData();
@@ -119,7 +116,7 @@ export default function Stats(props) {
           </Grid>
           <Grid item xs={6}>
             <ImageAvatars url={user.avatar_url ? user.avatar_url : ""} />
-            <Social/>
+            <Social />
           </Grid>
         </Grid>
       </Container>
