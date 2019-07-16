@@ -19,7 +19,7 @@
         "isLive": true,
         "type": "app",
         "description": "Oyebooks is an E-commerce Platform where we sell any pre-owned book at just Rs. 100 to make knowledge more economical and easily accessible, which no other platform does.",
-        "github": "https://github.com/naseemali925/ShapedNavigationView",
+        "github": "",
         "contributers": [
             {
                 "name": "Naseem Ali",
@@ -30,10 +30,10 @@
     {
         "title": "Graphing Module",
         "url": "https://play.google.com/store/apps/details?id=com.obiquos.oyebooksapp",
-        "isLive": true,
+        "isLive": false,
         "type": "module",
         "description": "A module to plot the essentials of an HVAC system to facilitate monitoring for better effeciency of the overall system",
-        "github": "https://github.com/naseemali925/ShapedNavigationView",
+        "github": "",
         "contributers": [
             {
                 "name": "Naseem Ali",
@@ -41,6 +41,20 @@
             },
             {
                 "name": "Shouvik Mitra",
+                "avatar": ""
+            }
+        ]
+    },
+    {
+        "title": "Lumos",
+        "url": "https://github.com/naseemali925/Lumos",
+        "isLive": true,
+        "type": "app",
+        "description": "An Android Application Which Is Designed To Help People Communicate With The Differently Abled, Thus Making This World A More Connected Place.",
+        "github": "https://github.com/naseemali925/Lumos",
+        "contributers": [
+            {
+                "name": "Naseem Ali",
                 "avatar": ""
             }
         ]

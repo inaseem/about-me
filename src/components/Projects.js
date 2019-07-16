@@ -6,7 +6,8 @@ import {
   CardActions,
   CardMedia,
   Typography,
-  IconButton
+  IconButton,
+  Chip
 } from "@material-ui/core";
 import projects from "../static/data/projects.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,8 +15,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Oyebooks from "../static/images/oyebooks.webp";
 import Abhitak from "../static/images/abhitak.jpg";
 import Graphing from "../static/images/graphing.png";
+import Lumos from "../static/images/lumos.png";
 
-const thumbnails = [Abhitak, Oyebooks, Graphing];
+const thumbnails = [Abhitak, Oyebooks, Graphing, Lumos];
 const thief = new window.ColorThief();
 
 const useStyles = makeStyles({
@@ -32,10 +34,13 @@ const useStyles = makeStyles({
   },
   description: {
     flexGrow: "1"
+  },
+  root: {
+    backgroundColor: "#4BB543"
   }
 });
 
-const getData = (index, setColors) => {
+const getData = index => {
   return new Promise((resolve, reject) => {
     let img = new Image();
     img.src = thumbnails[index];
@@ -60,7 +65,7 @@ export default function Projects() {
   const [colors, setColors] = React.useState({});
   React.useEffect(() => {
     const imgs = thumbnails.map((imgUrl, index) => {
-      return getData(index, setColors);
+      return getData(index);
     });
     Promise.all(imgs)
       .then(response => {
@@ -110,15 +115,29 @@ export default function Projects() {
                 </CardContent>
                 {/* </CardActionArea> */}
                 <CardActions>
-                  <IconButton aria-label="GitHub">
-                    {/* <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    > */}
+                  <IconButton
+                    aria-label="GitHub"
+                    onClick={() => {
+                      window.open(project.github, "_blank");
+                    }}
+                  >
                     <FontAwesomeIcon icon={["fab", "github"]} color="#161616" />
-                    {/* </a> */}
                   </IconButton>
+                  <Chip size="small" label={project.type.toUpperCase()} />
+                  {project.isLive ? (
+                    <Chip
+                      size="small"
+                      label="Live"
+                      clickable
+                      className={theme.root}
+                      color="primary"
+                      onClick={() => {
+                        window.open(project.url, "_blank");
+                      }}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </CardActions>
               </Card>
             </Grid>
