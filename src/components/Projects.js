@@ -33,14 +33,6 @@ const useStyles = makeStyles({
     flexGrow: "1"
   }
 });
-// const getColor = (index, url, colors, setColors) => {
-//   var img = document.createElement("img");
-//   img.setAttribute("crossOrigin", "");
-//   img.setAttribute("src", url);
-//   img.addEventListener("load", () => {
-//     setColors({ ...colors, [index]: thief.getColor(img, 90) });
-//   });
-// };
 
 export default function Projects() {
   const theme = useStyles();
@@ -48,12 +40,18 @@ export default function Projects() {
   React.useEffect(() => {
     let img, listener;
     thumbnails.forEach((imgUrl, index) => {
-      // getColor(index, thumbnails[index], colors, setColors);
       img = document.createElement("img");
       img.setAttribute("crossOrigin", "");
       img.setAttribute("src", imgUrl);
-      listener = () => {
-        if (img) setColors({ ...colors, [index]: thief.getColor(img, 90) });
+      listener = function() {
+        if (img && img.width !== 0) {
+          setColors(c => {
+            console.log("Before", JSON.stringify(c));
+            let obj = { ...c, [index]: thief.getColor(img, 90) };
+            console.log(index, JSON.stringify(obj));
+            return obj;
+          });
+        }
       };
       img.addEventListener("load", listener, false);
     });

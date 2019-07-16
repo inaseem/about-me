@@ -55,20 +55,30 @@ export default function Stats(props) {
   const [user, setUser] = useState({});
   const [company, setCompany] = useState([]);
   const theme = useTheme();
-  const getData = async () => {
-    // let response = await git.repos.list({
-    //   per_page: 100
-    // });
-    let userResponse = await octokit.users.getAuthenticated();
-    setUser(userResponse.data);
-    let orgsResponse = await octokit.orgs.listForAuthenticatedUser();
-    setCompany(orgsResponse.data);
-    // console.log(orgsResponse.data);
-    // console.log(userResponse.data);
-    return function cleanup() {};
-  };
+
   useEffect(() => {
-    getData();
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    const getData = async () => {
+      let userResponse = await octokit.users.getAuthenticated({
+        request: { signal }
+      });
+      setUser(userResponse.data);
+      let orgsResponse = await octokit.orgs.listForAuthenticatedUser({
+        request: {
+          signal
+        }
+      });
+      setCompany(orgsResponse.data);
+    };
+    try {
+      getData();
+    } catch (e) {
+      console.warn(e);
+    }
+    return function cleanup() {
+      abortController.abort();
+    };
   }, []);
 
   return (
