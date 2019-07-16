@@ -32,7 +32,7 @@ const drawerWidth = 240;
 const NavItems = [
   { title: "About Me", icon: Person, to: "/" },
   { title: "Projects", icon: WorkRounded, to: "/projects" },
-  { title: "Certifications", icon: NotesRounded },
+  { title: "Certifications", icon: NotesRounded, to: "/cert" },
   { title: "Achievements", icon: StarRounded }
 ];
 const SubNavItems = [
@@ -121,7 +121,6 @@ function ButtonAppBar(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      {/* <HideOnScroll {...props}> */}
       <AppBar
         color="primary"
         position="fixed"
@@ -145,7 +144,6 @@ function ButtonAppBar(props) {
           </Typography>
         </Toolbar>
       </AppBar>
-      {/* </HideOnScroll> */}
       <Drawer
         className={classes.drawer}
         variant="persistent"

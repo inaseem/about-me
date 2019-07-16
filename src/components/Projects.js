@@ -25,7 +25,8 @@ const useStyles = makeStyles({
     maxWidth: 280,
     display: "flex",
     height: "100%",
-    flexDirection: "column"
+    flexDirection: "column",
+    boxShadow: "0 30px 40px 0 rgba(16, 36, 94, 0.2)"
   },
   media: {
     height: 160,
@@ -127,7 +128,7 @@ export default function Projects() {
                   {project.isLive ? (
                     <Chip
                       size="small"
-                      label="Try This!"
+                      label="It's Live!"
                       clickable
                       className={theme.root}
                       color="primary"
