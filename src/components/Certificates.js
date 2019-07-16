@@ -40,10 +40,10 @@ const data = [
     expires: false,
     type: "Certification",
     issueDates: {
-      start: "Nove, 2018",
+      start: "Nov, 2018",
       end: ""
     },
-    credentialId: "HDHU7HWUPA9L",
+    credentialId: "TMSE4GVX",
     url: "https://confirm.udacity.com/TMSE4GVX"
   },
   {
