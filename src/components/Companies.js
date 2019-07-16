@@ -36,17 +36,23 @@ export default function Companies(props) {
   let [contributions, setContributions] = React.useState([]);
 
   React.useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
     const getIssues = async () => {
       const promises = Organizations.names.map(org => {
         return octokit.orgs.get({
-          org: org.owner
+          org: org.owner,
+          signal
         });
       });
       const response = await Promise.all(promises);
       setContributions(response.map(item => item.data));
-      console.log(response);
     };
     getIssues();
+
+    return function cleanup() {
+      abortController.abort();
+    };
   }, []);
 
   contributions = contributions.map((org, index) => {

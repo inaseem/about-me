@@ -127,7 +127,7 @@ export default function Projects() {
                   {project.isLive ? (
                     <Chip
                       size="small"
-                      label="Live"
+                      label="Try This!"
                       clickable
                       className={theme.root}
                       color="primary"
