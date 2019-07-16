@@ -59,23 +59,26 @@ export default function Stats(props) {
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
+    // signal.addEventListener("abort", (e) => {
+    //   console.log("Aborted Request",e);
+    // });
     const getData = async () => {
-      let userResponse = await octokit.users.getAuthenticated({
-        request: { signal }
-      });
-      setUser(userResponse.data);
-      let orgsResponse = await octokit.orgs.listForAuthenticatedUser({
-        request: {
-          signal
-        }
-      });
-      setCompany(orgsResponse.data);
+      try {
+        let userResponse = await octokit.users.getAuthenticated({
+          request: { signal }
+        });
+        setUser(userResponse.data);
+        let orgsResponse = await octokit.orgs.listForAuthenticatedUser({
+          request: {
+            signal
+          }
+        });
+        setCompany(orgsResponse.data);
+      } catch (err) {
+        console.info(err.name, "Request Aborted");
+      }
     };
-    try {
-      getData();
-    } catch (e) {
-      console.warn(e);
-    }
+    getData();
     return function cleanup() {
       abortController.abort();
     };

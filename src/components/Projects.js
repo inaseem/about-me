@@ -13,8 +13,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { makeStyles } from "@material-ui/core/styles";
 import Oyebooks from "../static/images/oyebooks.webp";
 import Abhitak from "../static/images/abhitak.jpg";
+import Graphing from "../static/images/graphing.png";
 
-const thumbnails = [Abhitak, Oyebooks];
+const thumbnails = [Abhitak, Oyebooks, Graphing];
 const thief = new window.ColorThief();
 
 const useStyles = makeStyles({
@@ -34,31 +35,45 @@ const useStyles = makeStyles({
   }
 });
 
+const getData = (index, setColors) => {
+  return new Promise((resolve, reject) => {
+    let img = new Image();
+    img.src = thumbnails[index];
+    img.crossOrigin = "";
+    img.addEventListener(
+      "load",
+      function() {
+        try {
+          const imgColor = thief.getColor(img, 90);
+          resolve({ index, color: imgColor });
+        } catch (e) {
+          reject();
+        }
+      },
+      false
+    );
+  });
+};
+
 export default function Projects() {
   const theme = useStyles();
   const [colors, setColors] = React.useState({});
   React.useEffect(() => {
-    let img, listener;
-    thumbnails.forEach((imgUrl, index) => {
-      img = document.createElement("img");
-      img.setAttribute("crossOrigin", "");
-      img.setAttribute("src", imgUrl);
-      listener = function() {
-        if (img && img.width !== 0) {
-          setColors(c => {
-            console.log("Before", JSON.stringify(c));
-            let obj = { ...c, [index]: thief.getColor(img, 90) };
-            console.log(index, JSON.stringify(obj));
-            return obj;
-          });
-        }
-      };
-      img.addEventListener("load", listener, false);
+    const imgs = thumbnails.map((imgUrl, index) => {
+      return getData(index, setColors);
     });
-
-    return function cleanup() {
-      if (img && listener) img.removeEventListener("load", listener, false);
-    };
+    Promise.all(imgs)
+      .then(response => {
+        response.forEach(data => {
+          setColors(c => {
+            return { ...c, [data.index]: data.color };
+          });
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    return function cleanup() {};
   }, []);
   return (
     <React.Fragment>

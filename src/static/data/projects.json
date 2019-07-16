@@ -26,5 +26,23 @@
                 "avatar": ""
             }
         ]
+    },
+    {
+        "title": "Graphing Module",
+        "url": "https://play.google.com/store/apps/details?id=com.obiquos.oyebooksapp",
+        "isLive": true,
+        "type": "module",
+        "description": "A module to plot the essentials of an HVAC system to facilitate monitoring for better effeciency of the overall system",
+        "github": "https://github.com/naseemali925/ShapedNavigationView",
+        "contributers": [
+            {
+                "name": "Naseem Ali",
+                "avatar": ""
+            },
+            {
+                "name": "Shouvik Mitra",
+                "avatar": ""
+            }
+        ]
     }
 ]
