@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d3268caf.chunk.css",
+    "main.js": "/static/js/main.ac485127.chunk.js",
+    "main.js.map": "/static/js/main.ac485127.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.94155858.chunk.css": "/static/css/2.94155858.chunk.css",
+    "static/js/2.c579a720.chunk.js": "/static/js/2.c579a720.chunk.js",
+    "static/js/2.c579a720.chunk.js.map": "/static/js/2.c579a720.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.9e595709db95f08a34b8802db530d643.js": "/precache-manifest.9e595709db95f08a34b8802db530d643.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.94155858.chunk.css.map": "/static/css/2.94155858.chunk.css.map",
+    "static/css/main.d3268caf.chunk.css.map": "/static/css/main.d3268caf.chunk.css.map",
+    "static/media/abhitak.jpg": "/static/media/abhitak.c873ef9b.jpg",
+    "static/media/aws.png": "/static/media/aws.ed0a29fc.png",
+    "static/media/graphing.png": "/static/media/graphing.900c1573.png",
+    "static/media/internshala.png": "/static/media/internshala.7fdc6bc3.png",
+    "static/media/lumos.png": "/static/media/lumos.1c956ef1.png",
+    "static/media/nano_android.png": "/static/media/nano_android.1ffdd38f.png",
+    "static/media/naseem.png": "/static/media/naseem.2dfbb9db.png",
+    "static/media/oyebooks.webp": "/static/media/oyebooks.04bb5fcc.webp",
+    "static/media/index.css": "/static/media/roboto-latin-900italic.bc833e72.woff"
+  }
+}
