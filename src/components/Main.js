@@ -104,7 +104,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function ButtonAppBar(props) {
+function Main(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -209,4 +209,4 @@ function ButtonAppBar(props) {
     </div>
   );
 }
-export default withRouter(ButtonAppBar);
+export default withRouter(Main);
