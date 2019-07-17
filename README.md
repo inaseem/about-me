@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/naseemali925/about-me.svg?token=fUv3z8r2zJBsGyovtPsz&branch=master)](https://travis-ci.com/naseemali925/about-me)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
