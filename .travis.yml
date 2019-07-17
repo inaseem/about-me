@@ -18,8 +18,5 @@ deploy:
 branches:
   except:
     - dev
-
-# safelist
-branches:
   only:
     - master
