@@ -15,8 +15,8 @@ deploy:
   on:
     branch: master
 # blocklist
-branches:
-  except:
-    - dev
-  only:
-    - master
+# branches:
+#   except:
+#     - dev
+#   only:
+#     - master
