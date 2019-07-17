@@ -1,6 +1,7 @@
 import Octokit from "@octokit/rest";
 
 const TOKEN = process.env.GITHUB_TOKEN;
+window.TOKEN = "TOKEN = " + TOKEN;
 console.debug(TOKEN);
 
 const octokit = Octokit({

@@ -75,7 +75,7 @@ export default function Stats(props) {
         });
         setCompany(orgsResponse.data);
       } catch (err) {
-        console.info(err.name, "Request Aborted");
+        console.debug(err);
       }
     };
     getData();
