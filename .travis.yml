@@ -14,3 +14,12 @@ deploy:
   local_dir: build
   on:
     branch: master
+# blocklist
+branches:
+  except:
+    - dev
+
+# safelist
+branches:
+  only:
+    - master
