@@ -5,7 +5,8 @@ window.TOKEN = "TOKEN = " + TOKEN;
 console.debug(TOKEN);
 
 const octokit = Octokit({
-  auth: process.env.REACT_APP_TOKEN,
+  // auth: process.env.REACT_APP_TOKEN,
+  auth: "23dc12658e3ca56d36d064375ee95eca4e088382",
   userAgent: "about-me v0.1.0",
   baseUrl: "https://api.github.com",
   log: {
