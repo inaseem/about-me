@@ -1,26 +1,18 @@
 {
   "files": {
     "main.css": "/about-me/static/css/main.d3268caf.chunk.css",
-    "main.js": "/about-me/static/js/main.c59fa3b5.chunk.js",
-    "main.js.map": "/about-me/static/js/main.c59fa3b5.chunk.js.map",
+    "main.js": "/about-me/static/js/main.3b89f925.chunk.js",
+    "main.js.map": "/about-me/static/js/main.3b89f925.chunk.js.map",
     "runtime~main.js": "/about-me/static/js/runtime~main.838ee889.js",
     "runtime~main.js.map": "/about-me/static/js/runtime~main.838ee889.js.map",
     "static/css/2.a0b7eb62.chunk.css": "/about-me/static/css/2.a0b7eb62.chunk.css",
-    "static/js/2.0514cfa1.chunk.js": "/about-me/static/js/2.0514cfa1.chunk.js",
-    "static/js/2.0514cfa1.chunk.js.map": "/about-me/static/js/2.0514cfa1.chunk.js.map",
+    "static/js/2.b2d7da17.chunk.js": "/about-me/static/js/2.b2d7da17.chunk.js",
+    "static/js/2.b2d7da17.chunk.js.map": "/about-me/static/js/2.b2d7da17.chunk.js.map",
     "index.html": "/about-me/index.html",
-    "precache-manifest.4e77e39e752060e4002d4c25d1266109.js": "/about-me/precache-manifest.4e77e39e752060e4002d4c25d1266109.js",
+    "precache-manifest.8ca478c89592c6d63373c7582d767be9.js": "/about-me/precache-manifest.8ca478c89592c6d63373c7582d767be9.js",
     "service-worker.js": "/about-me/service-worker.js",
     "static/css/2.a0b7eb62.chunk.css.map": "/about-me/static/css/2.a0b7eb62.chunk.css.map",
     "static/css/main.d3268caf.chunk.css.map": "/about-me/static/css/main.d3268caf.chunk.css.map",
-    "static/media/abhitak.jpg": "/about-me/static/media/abhitak.c873ef9b.jpg",
-    "static/media/aws.png": "/about-me/static/media/aws.ed0a29fc.png",
-    "static/media/graphing.png": "/about-me/static/media/graphing.900c1573.png",
-    "static/media/internshala.png": "/about-me/static/media/internshala.7fdc6bc3.png",
-    "static/media/lumos.png": "/about-me/static/media/lumos.1c956ef1.png",
-    "static/media/nano_android.png": "/about-me/static/media/nano_android.1ffdd38f.png",
-    "static/media/naseem.png": "/about-me/static/media/naseem.2dfbb9db.png",
-    "static/media/oyebooks.webp": "/about-me/static/media/oyebooks.04bb5fcc.webp",
     "static/media/index.css": "/about-me/static/media/roboto-latin-900italic.bc833e72.woff"
   }
 }
