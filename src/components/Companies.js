@@ -42,7 +42,7 @@ export default function Companies(props) {
       const promises = Organizations.names.map(org => {
         return octokit.orgs.get({
           org: org.owner,
-          signal
+          request: { signal }
         });
       });
       const response = await Promise.all(promises);

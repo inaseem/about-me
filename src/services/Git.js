@@ -1,9 +1,5 @@
 import Octokit from "@octokit/rest";
 
-const TOKEN = process.env.GITHUB_TOKEN;
-window.TOKEN = "TOKEN = " + TOKEN;
-console.log(process.env);
-
 const octokit = Octokit({
   // auth: process.env.REACT_APP_TOKEN,
   auth: "23dc12658e3ca56d36d064375ee95eca4e088382",
