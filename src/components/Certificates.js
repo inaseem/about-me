@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Grid, Paper, Chip } from "@material-ui/core";
+import { makeStyles, Grid, Paper, Button } from "@material-ui/core";
 import Android from "../static/cert/nano_android.png";
 import AWS from "../static/cert/aws.png";
 import Internshala from "../static/cert/internshala.png";
@@ -75,13 +75,7 @@ export default function Certificates() {
                     if (!cert.url) e.preventDefault();
                   }}
                 >
-                  <Chip
-                    size="small"
-                    label={cert.name}
-                    clickable
-                    className={theme.root}
-                    color="primary"
-                  />
+                   <Button variant="outlined">{cert.name}</Button>
                   <img
                     src={certs[index]}
                     alt={cert.name}
