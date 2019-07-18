@@ -12,12 +12,7 @@ import {
 import projects from "../static/data/projects.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { makeStyles } from "@material-ui/core/styles";
-import Oyebooks from "../static/images/oyebooks.webp";
-import Abhitak from "../static/images/abhitak.jpg";
-import Graphing from "../static/images/graphing.png";
-import Lumos from "../static/images/lumos.png";
 
-const thumbnails = [Abhitak, Oyebooks, Graphing, Lumos];
 const thief = new window.ColorThief();
 
 const useStyles = makeStyles({
@@ -41,10 +36,14 @@ const useStyles = makeStyles({
   }
 });
 
-const getData = index => {
+const normalize = path => {
+  return process.env.PUBLIC_URL + "/static/" + path;
+};
+
+const getData = (index, url) => {
   return new Promise((resolve, reject) => {
     let img = new Image();
-    img.src = thumbnails[index];
+    img.src = normalize(url);
     img.crossOrigin = "";
     img.addEventListener(
       "load",
@@ -65,8 +64,8 @@ export default function Projects() {
   const theme = useStyles();
   const [colors, setColors] = React.useState({});
   React.useEffect(() => {
-    const imgs = thumbnails.map((imgUrl, index) => {
-      return getData(index);
+    const imgs = projects.map((project, index) => {
+      return getData(index, project.image);
     });
     Promise.all(imgs)
       .then(response => {
@@ -99,7 +98,7 @@ export default function Projects() {
                       : {}
                   }
                   className={theme.media}
-                  image={thumbnails[index]}
+                  image={normalize(project.image)}
                   title={project.title}
                 />
                 <CardContent className={theme.description}>

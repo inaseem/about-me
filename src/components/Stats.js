@@ -67,7 +67,10 @@ export default function Stats(props) {
         let userResponse = await octokit.users.getAuthenticated({
           request: { signal }
         });
-        setUser(userResponse.data);
+        setUser({
+          name: userResponse.data.name,
+          image: userResponse.data.avatar_url
+        });
         let orgsResponse = await octokit.orgs.listForAuthenticatedUser({
           request: {
             signal
@@ -128,7 +131,7 @@ export default function Stats(props) {
             </Grid>
           </Grid>
           <Grid item xs={6}>
-            <ImageAvatars url={user.avatar_url ? user.avatar_url : ""} />
+            <ImageAvatars user={user} />
             <Social />
           </Grid>
         </Grid>

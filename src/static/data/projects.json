@@ -1,6 +1,7 @@
 [
     {
         "title": "AbhiTak News App",
+        "image": "projects/abhitak.jpg",
         "url": "https://play.google.com/store/apps/details?id=softpro.abhitak",
         "isLive": true,
         "type": "app",
@@ -15,6 +16,7 @@
     },
     {
         "title": "Oyebooks",
+        "image": "projects/oyebooks.webp",
         "url": "https://play.google.com/store/apps/details?id=com.obiquos.oyebooksapp",
         "isLive": true,
         "type": "app",
@@ -29,6 +31,7 @@
     },
     {
         "title": "Graphing Module",
+        "image": "projects/graphing.png",
         "url": "https://play.google.com/store/apps/details?id=com.obiquos.oyebooksapp",
         "isLive": false,
         "type": "module",
@@ -47,6 +50,7 @@
     },
     {
         "title": "Lumos",
+        "image": "projects/lumos.png",
         "url": "https://github.com/naseemali925/Lumos",
         "isLive": true,
         "type": "app",
