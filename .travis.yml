@@ -15,7 +15,7 @@ deploy:
   on:
     branch: master
 env:
-  - REACT_APP_TOKEN=$GITHUB_TOKEN
+  - REACT_APP_TOKEN=$PERSONAL_ACCESS_TOKEN
 # blocklist
 # branches:
 #   except:
