@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles, Grid, Paper, Button } from "@material-ui/core";
+import certs from "../static/data/certs.json";
 
 const useStyles = makeStyles({
   paper: {
@@ -17,48 +18,6 @@ const useStyles = makeStyles({
   }
 });
 
-const data = [
-  {
-    name: "AWS Fundamentals: Going Cloud-Native",
-    issuer: "Coursera",
-    image: "cert/aws.png",
-    expires: false,
-    type: "Certification",
-    issueDates: {
-      start: "Jan, 2019",
-      end: ""
-    },
-    credentialId: "HDHU7HWUPA9L",
-    url: "https://www.coursera.org/account/accomplishments/verify/HDHU7HWUPA9L"
-  },
-  {
-    name: "Android Basics Nanodegree by Google",
-    issuer: "Udacity",
-    image: "cert/nano_android.png",
-    expires: false,
-    type: "Certification",
-    issueDates: {
-      start: "Nov, 2018",
-      end: ""
-    },
-    credentialId: "TMSE4GVX",
-    url: "https://confirm.udacity.com/TMSE4GVX"
-  },
-  {
-    name: "Obiquos Technologies Private Limited - Internship (Virtual)",
-    issuer: "Obiquos",
-    image: "cert/internshala.png",
-    expires: false,
-    type: "Internship",
-    issueDates: {
-      start: "Jun, 2018",
-      end: ""
-    },
-    credentialId: "",
-    url: ""
-  }
-];
-
 const normalize = path => {
   return process.env.PUBLIC_URL + "/static/" + path;
 };
@@ -68,7 +27,7 @@ export default function Certificates() {
   return (
     <React.Fragment>
       <Grid container justify="center" alignItems="stretch" spacing={3}>
-        {data.map((cert, index) => {
+        {certs.map((cert, index) => {
           return (
             <Grid item key={index}>
               <Paper className={theme.paper}>

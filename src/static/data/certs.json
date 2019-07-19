@@ -1,0 +1,41 @@
+[
+    {
+        "name": "AWS Fundamentals: Going Cloud-Native",
+        "issuer": "Coursera",
+        "image": "cert/aws.png",
+        "expires": false,
+        "type": "Certification",
+        "issueDates": {
+            "start": "Jan, 2019",
+            "end": ""
+        },
+        "credentialId": "HDHU7HWUPA9L",
+        "url": "https://www.coursera.org/account/accomplishments/verify/HDHU7HWUPA9L"
+    },
+    {
+        "name": "Android Basics Nanodegree by Google",
+        "issuer": "Udacity",
+        "image": "cert/nano_android.png",
+        "expires": false,
+        "type": "Certification",
+        "issueDates": {
+            "start": "Nov, 2018",
+            "end": ""
+        },
+        "credentialId": "TMSE4GVX",
+        "url": "https://confirm.udacity.com/TMSE4GVX"
+    },
+    {
+        "name": "Obiquos Technologies Private Limited - Internship (Virtual)",
+        "issuer": "Obiquos",
+        "image": "cert/internshala.png",
+        "expires": false,
+        "type": "Internship",
+        "issueDates": {
+            "start": "Jun, 2018",
+            "end": ""
+        },
+        "credentialId": "",
+        "url": ""
+    }
+]
