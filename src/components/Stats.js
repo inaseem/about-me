@@ -68,6 +68,7 @@ export default function Stats(props) {
           request: { signal }
         });
         setUser({
+          ...userResponse.data,
           name: userResponse.data.name,
           image: userResponse.data.avatar_url
         });
