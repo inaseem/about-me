@@ -57,7 +57,14 @@ export default function Companies(props) {
 
   contributions = contributions.map((org, index) => {
     return (
-      <Grid item key={index} xs={6} md={2} className={theme.flexItem}>
+      <Grid
+        item
+        key={index}
+        xs={6}
+        md={2}
+        className={theme.flexItem}
+        title={org.name ? org.name : org.login}
+      >
         <Grid item>
           <img
             src={org.avatar_url}

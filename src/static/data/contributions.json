@@ -1,6 +1,10 @@
 {
     "names": [
         {
+            "owner": "octokit",
+            "repo": "rest.js"
+        },
+        {
             "owner": "elastic",
             "repo": "elasticsearch-js"
         },
