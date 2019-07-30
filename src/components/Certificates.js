@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles, Grid, Paper, Button } from "@material-ui/core";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import certs from "../static/data/certs.json";
 
 const useStyles = makeStyles({
@@ -24,12 +25,14 @@ const normalize = path => {
 
 export default function Certificates() {
   const theme = useStyles();
+  const matches = useMediaQuery("(max-width:600px)");
+  const maxWidth = matches ? "100%" : "70%";
   return (
     <React.Fragment>
       <Grid container justify="center" alignItems="stretch" spacing={3}>
         {certs.map((cert, index) => {
           return (
-            <Grid item key={index}>
+            <Grid item key={index} style={{ width: maxWidth }}>
               <Paper className={theme.paper}>
                 <a
                   href={cert.url}
