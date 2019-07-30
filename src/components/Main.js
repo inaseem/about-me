@@ -119,7 +119,7 @@ function Main(props) {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="welcome-section">
       <CssBaseline />
       <AppBar
         color="primary"
@@ -129,7 +129,7 @@ function Main(props) {
         })}
         classes={{ colorPrimary: classes.colorPrimary }}
       >
-        <Toolbar variant="regular">
+        <Toolbar variant="regular" id="navbar">
           <IconButton
             color="inherit"
             aria-label="Open drawer"
