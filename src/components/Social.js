@@ -27,6 +27,7 @@ export default function Social() {
         </Grid>
         <Grid item>
           <a
+            id="profile-link"
             href="https://github.com/naseemali925"
             target="_blank"
             rel="noopener noreferrer"

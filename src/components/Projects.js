@@ -82,7 +82,7 @@ export default function Projects() {
   }, []);
   return (
     <React.Fragment>
-      <Grid container justify="center" alignItems="stretch" spacing={2}>
+      <Grid container justify="center" alignItems="stretch" spacing={2} id="projects">
         {projects.map((project, index) => {
           return (
             <Grid item key={index}>
@@ -102,7 +102,7 @@ export default function Projects() {
                   title={project.title}
                 />
                 <CardContent className={theme.description}>
-                  <Typography gutterBottom variant="h6">
+                  <Typography gutterBottom variant="h6" id="project-title">
                     {project.title}
                   </Typography>
                   <Typography

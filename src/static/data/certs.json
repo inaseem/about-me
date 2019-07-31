@@ -1,5 +1,18 @@
 [
     {
+        "name": "Responsive Web Design",
+        "issuer": "freeCodeCamp",
+        "image": "cert/freeCodeCamp.png",
+        "expires": false,
+        "type": "Internship",
+        "issueDates": {
+            "start": "July, 2019",
+            "end": ""
+        },
+        "credentialId": "",
+        "url": ""
+    },
+    {
         "name": "AWS Fundamentals: Going Cloud-Native",
         "issuer": "Coursera",
         "image": "cert/aws.png",
@@ -28,7 +41,7 @@
     {
         "name": "Obiquos Technologies Private Limited - Internship (Virtual)",
         "issuer": "Obiquos",
-        "image": "cert/internshala.png",
+        "image": "cert/obiquos.jpg",
         "expires": false,
         "type": "Internship",
         "issueDates": {
