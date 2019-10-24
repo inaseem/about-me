@@ -16,6 +16,8 @@ deploy:
     branch: master
 env:
   - REACT_APP_TOKEN=$PERSONAL_ACCESS_TOKEN
+  - REACT_APP_USERNAME=$GIT_USERNAME
+  - REACT_APP_PASSWORD=$GIT_PASS
 # blocklist
 # branches:
 #   except:
