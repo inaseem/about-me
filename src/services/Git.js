@@ -1,7 +1,11 @@
 import Octokit from "@octokit/rest";
-console.log("Token = "+process.env.REACT_APP_TOKEN)
+let username=process.env.REACT_APP_USERNAME;
+let password=process.env.REACT_APP_PASSWORD;
 const octokit = Octokit({
-  auth: `${process.env.REACT_APP_TOKEN}`,
+  auth: {
+    username,
+    password
+  },
   userAgent: "about-me v0.1.0",
   baseUrl: "https://api.github.com",
   log: {
