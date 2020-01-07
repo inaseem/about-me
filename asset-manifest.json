@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/about-me/static/css/main.d3268caf.chunk.css",
-    "main.js": "/about-me/static/js/main.64fc5ea3.chunk.js",
-    "main.js.map": "/about-me/static/js/main.64fc5ea3.chunk.js.map",
-    "runtime~main.js": "/about-me/static/js/runtime~main.838ee889.js",
-    "runtime~main.js.map": "/about-me/static/js/runtime~main.838ee889.js.map",
-    "static/css/2.a0b7eb62.chunk.css": "/about-me/static/css/2.a0b7eb62.chunk.css",
-    "static/js/2.798b4e41.chunk.js": "/about-me/static/js/2.798b4e41.chunk.js",
-    "static/js/2.798b4e41.chunk.js.map": "/about-me/static/js/2.798b4e41.chunk.js.map",
-    "index.html": "/about-me/index.html",
-    "precache-manifest.b6f41e294b0bfc50f024f19fd2bfc305.js": "/about-me/precache-manifest.b6f41e294b0bfc50f024f19fd2bfc305.js",
-    "service-worker.js": "/about-me/service-worker.js",
-    "static/css/2.a0b7eb62.chunk.css.map": "/about-me/static/css/2.a0b7eb62.chunk.css.map",
-    "static/css/main.d3268caf.chunk.css.map": "/about-me/static/css/main.d3268caf.chunk.css.map",
-    "static/media/index.css": "/about-me/static/media/roboto-latin-900italic.bc833e72.woff"
+    "main.css": "/static/css/main.83d666f1.chunk.css",
+    "main.js": "/static/js/main.9efba7b5.chunk.js",
+    "main.js.map": "/static/js/main.9efba7b5.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.94155858.chunk.css": "/static/css/2.94155858.chunk.css",
+    "static/js/2.5db3621b.chunk.js": "/static/js/2.5db3621b.chunk.js",
+    "static/js/2.5db3621b.chunk.js.map": "/static/js/2.5db3621b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.cf68787bf77b03ecfac1fa372c3f326f.js": "/precache-manifest.cf68787bf77b03ecfac1fa372c3f326f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.94155858.chunk.css.map": "/static/css/2.94155858.chunk.css.map",
+    "static/css/main.83d666f1.chunk.css.map": "/static/css/main.83d666f1.chunk.css.map",
+    "static/media/index.css": "/static/media/roboto-latin-900italic.bc833e72.woff"
   }
 }
